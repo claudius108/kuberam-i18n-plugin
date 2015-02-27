@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>ro.kuberam.maven.plugins.kuberam-i18n-plugin</groupId>
+	<artifactId>generate-ip-l10n-data-test</artifactId>
+	<version>0.1</version>
+	<packaging>jar</packaging>
+	<name>GenerateIpL10nDataMojoTest</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>ro.kuberam.maven.plugins</groupId>
+				<artifactId>kuberam-i18n-plugin</artifactId>
+				<version>0.1.1</version>
+				<executions>
+					<execution>
+						<id>generate-ip-l10n-data</id>
+						<phase>test</phase>
+						<goals>
+							<goal>generate-lib-basics</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- Specify where this pom will output files -->
+					<outputDirectory>target/test-harness/project-to-test</outputDirectory>
+
+					<!-- By default <<<${basedir}/target/local-repo", where basedir refers to the basedir of maven-my-plugin. -->
+					<localRepository>${localRepository}</localRepository>
+					<!-- The defined stubs -->
+					<project implementation="ro.kuberam.maven.plugins.i18n.mojos.MyProjectStub" />
+					<settings implementation="ro.kuberam.maven.plugins.i18n.mojos.SettingsStub" />
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
