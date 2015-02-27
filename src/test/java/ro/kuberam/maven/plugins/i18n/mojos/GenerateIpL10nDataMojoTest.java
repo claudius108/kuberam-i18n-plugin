@@ -5,7 +5,7 @@ import java.io.File;
 import org.apache.maven.project.MavenProject;
 import org.junit.Test;
 
-import ro.kuberam.maven.plugins.utils.KuberamAbstractMojoTestBase;
+import ro.kuberam.maven.plugins.mojos.KuberamAbstractMojoTestBase;
 
 public class GenerateIpL10nDataMojoTest extends KuberamAbstractMojoTestBase {
 
